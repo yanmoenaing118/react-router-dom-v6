@@ -6,49 +6,29 @@ import { useState, useEffect } from "react";
 export default function App() {
   const boxControls = useAnimation();
 
-  const [show, setShow] = useState(false);
-
   return (
-    <main onClick={() => setShow(!show)}>
-      <Component isVisible={show} />
-      <style jsx>{`
-        main {
-          width: 100%;
-          height: 100vh;
-          overflow: hidden;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: purple;
-        }
-      `}</style>
-    </main>
+    <>
+      <main className="grid">
+        {[1, 2, 3, 4,5, 6,7,8,9,10,11 ].map((item) => (
+          <div key={item} className="item" data-no={item}>Box {item}</div>
+        ))}
+      </main>
+    </>
   );
 }
 
-function Component({ isVisible }) {
+function Component({ item }) {
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-        key="item"
-          initial={{
-            opacity: 0,
-            y: "-100vh"
-          }}
-          animate={{
-            opacity: 1,
-            y: 0
-          }}
-          exit={{
-            opacity: 0,
-            y: "-100vh"
-          }}
-          className="item"
-        >
-          Box
-        </motion.div>
-      )}
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        key={item ? item.id : "empty"}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.3 }}
+      >
+        {item.description}
+      </motion.div>
     </AnimatePresence>
   );
 }
