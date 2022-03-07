@@ -6,3 +6,25 @@
 ::after {
   box-sizing: border-box;
 }
+.flex {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.flex[data-reverse="true"] {
+  width: 400px;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: aliceblue;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
