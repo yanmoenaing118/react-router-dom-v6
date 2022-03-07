@@ -23,7 +23,10 @@ export default function Invoices() {
         }}
       >
         <input type="text" value={searchParams.get("filter") || ""} onChange={handleFilter} />
-        {invoices.map((invoice) => (
+        {invoices.filter((invoice) => {
+          
+          return invoice.name.toLowerCase().startsWith(searchParams.get('filter'));
+        }).map((invoice) => (
           <NavLink
             style={({ isActive }) => {
               return {

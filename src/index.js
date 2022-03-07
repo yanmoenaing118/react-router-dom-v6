@@ -6,16 +6,17 @@ import App from "./App";
 import Expenses from "./routes/expenses";
 import Invoices from "./routes/invoices";
 import Invoice from "./routes/invoice";
+import Home from "./routes/home";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
           <Route
             index
             element={
-              <main style={{ padding: "1rem" }}>this is the home page</main>
+              <Home />
             }
           />
           <Route path="invoices" element={<Invoices />}>
@@ -40,7 +41,8 @@ ReactDOM.render(
           />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
