@@ -8,10 +8,21 @@ export default function App() {
 
   return (
     <>
-      <main className="grid">
-        {[1, 2, 3, 4,5, 6,7,8,9,10,11 ].map((item) => (
-          <div key={item} className="item" data-no={item}>Box {item}</div>
-        ))}
+      <main>
+        <div class="wrapper">
+          <div>One</div>
+          <div>Two</div>
+          <div>Three</div>
+          <div>Four</div>
+          <div>Five</div>
+          <div>Six</div>
+          <div>Seven</div>
+          <div>Eight</div>
+          <div>Nine</div>
+          <div>Ten</div>
+          <div>Eleven</div>
+          <div>Twelve</div>
+        </div>
       </main>
     </>
   );
