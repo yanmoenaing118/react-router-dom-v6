@@ -31,6 +31,7 @@ body {
 main {
   background-color: #fff;
   border-radius: 5px;
+  padding: 10rem;
 }
 
 nav {
@@ -107,7 +108,7 @@ main section {
   display: grid;
 
   grid-template-columns: repeat(4, 100px);
-  grid-auto-rows: 100px;
+  grid-auto-rows: 200px;
   grid-gap: 10px;
   grid-auto-flow: dense;
 }

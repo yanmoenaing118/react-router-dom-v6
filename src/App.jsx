@@ -1,31 +1,44 @@
 import "./App.css";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { FaAngleDoubleUp } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
+
+const AppContext = createContext();
 
 export default function App() {
   const boxControls = useAnimation();
+  const [arr, setArr] = useState([]);
 
   return (
     <>
-      <main>
-        <div class="wrapper">
-          <div>One</div>
-          <div>Two</div>
-          <div>Three</div>
-          <div>Four</div>
-          <div>Five</div>
-          <div>Six</div>
-          <div>Seven</div>
-          <div>Eight</div>
-          <div>Nine</div>
-          <div>Ten</div>
-          <div>Eleven</div>
-          <div>Twelve</div>
-        </div>
-      </main>
+      <AppContext.Provider  value={{ arr, setArr }}>
+        <main>
+          <Push
+            total={arr.length}
+            onPush={() => setArr([...arr, Math.random()])}
+          />
+        </main>
+      </AppContext.Provider>
     </>
   );
+}
+
+function Push({ total, onPush }) {
+  return (
+    <div>
+      <PushButton onPush={onPush} />
+      <br />
+      <TotalPushs total={total} />
+    </div>
+  );
+}
+
+function TotalPushs({ total }) {
+  return <p>Total Items in array : {total}</p>;
+}
+
+function PushButton({ onPush }) {
+  return <button onClick={onPush}>Add to Item</button>;
 }
 
 function Component({ item }) {
