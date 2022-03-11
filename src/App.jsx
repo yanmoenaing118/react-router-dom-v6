@@ -7,18 +7,97 @@ const AppContext = createContext();
 
 export default function App() {
   const boxControls = useAnimation();
-  const [arr, setArr] = useState([]);
 
   return (
     <>
-      <AppContext.Provider  value={{ arr, setArr }}>
-        <main>
-          <Push
-            total={arr.length}
-            onPush={() => setArr([...arr, Math.random()])}
-          />
-        </main>
-      </AppContext.Provider>
+      <main>
+        <div class="one">
+          <div class="arrow1">
+            <motion.svg width="117" height="89">
+              <motion.path
+                fill="none"
+                stroke="#808080"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M1.5,1.5C53.82,1.5,97.718,37.559,109,86"
+                initial={{ pathLength: 0 }}
+                animate={{
+                  pathLength: 1,
+                  transition: {
+                    duration: 1,
+                  },
+                }}
+              ></motion.path>
+            </motion.svg>
+          </div>
+
+          <div class="arrow1a">
+            <motion.svg width="117" height="90">
+              <motion.path
+                d="M116.334,74.833 109.812,86.328 98.316,79.804"
+                path
+                fill="none"
+                stroke="#808080"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: {
+                    delay: 1,
+                    duration: 1,
+                  },
+                }}
+              ></motion.path>
+            </motion.svg>
+          </div>
+        </div>
+
+        <div class="two">
+          <div class="arrow2">
+            <motion.svg width="200" height="100">
+              <motion.path
+                fill="none"
+                stroke="#808080"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M107.647,1.5C96.854,50.345,52.636,87.724,10.5,89.176"
+                initial={{ pathLength: 0 }}
+                animate={{
+                  pathLength: 1,
+                  transition: {
+                    delay: 1,
+                    duration: 1,
+                  },
+                }}
+              ></motion.path>
+            </motion.svg>
+          </div>
+          <div class="arrow2a">
+            <motion.svg width="200" height="100">
+              <motion.path
+                fill="none"
+                stroke="#808080"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.175,98.182 6.5,89.176 16.507,79.502"
+                initial={{opacity: 0}}
+                animate={{
+                  opacity: 1,
+                  transition: {
+                    delay: 2,
+                    duration: 1
+                  }
+                }}
+              ></motion.path>
+            </motion.svg>
+          </div>
+        </div>
+      </main>
     </>
   );
 }
